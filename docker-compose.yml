@@ -1,0 +1,12 @@
+version: "3"
+services:
+  notebook:
+    build: .
+    ports:
+      - "8888:8888"
+    # REF: https://hub.docker.com/r/giffordlab/datascience-notebook
+    environment:
+      - GRANT_SUDO=yes
+    volumes:
+      - ./notes:/home/jovyan/work
+    command: start-notebook.sh --NotebookApp.token=''
